@@ -6,10 +6,16 @@ function getNeighbors(row, col, graph) {
   if(top === 1){
     neighbors.push([row-1,col])
   }
-
+  //top left
+  let topLeft = graph[row-1,col-1]
+  if (topLeft === 1){
+    neighbors.push([row-1,col-1])
+  }
   //Check topRight
   let topRight = graph[row-1][col+1]
-  console.log(topRight)
+  if(topRight === 1){
+    neighbors.push([row-1][col+1])
+  }
   // Check bottom
   let bottom = graph[row+1][col]
   if(bottom === 1){
@@ -22,8 +28,14 @@ function getNeighbors(row, col, graph) {
   }
 //bottom left
 let bottomLeft = graph[row+1][col-1]
-console.log(bottomLeft)
-
+if(bottomLeft === 1){
+  neighbors.push([row+1][col-1])
+}
+//bottom right
+let bottomRight = graph[row+1][col+1]
+if (bottomRight === 1){
+  neighbors.push([row+1][col+1])
+}
   // Check right
   let right = graph[row][col+1]
   if(right === 1){
